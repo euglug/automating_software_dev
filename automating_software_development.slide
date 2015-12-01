@@ -83,7 +83,7 @@ Webhooks are just hooks that notify an external service using an http POST reque
 
 - ifttt
 
-.link https://api.slack.com/incoming-webhooks IFTT Maker Hook
+.link https://ifttt.com/maker IFTT Maker Hook
 
 * Chatops
 
@@ -148,7 +148,7 @@ Free. Can be secured. You'll need to provide your own integration point.
 
 - even small amounts of automation can improve your process and speed up your flow
 
-- it's relatively easy to get started with tools that are widely available and easy to learn
+- its relatively easy to get started with tools that are widely available and easy to learn
 
 - you don't have to do it all at once
 
