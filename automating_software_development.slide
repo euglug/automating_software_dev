@@ -1,0 +1,156 @@
+Automating Software Development
+Computers should do the work so humanity can create.
+1 Dec 2015
+Tags: euglug, git, development, automation, tools
+
+Larry Price
+Professional Debugger, EUGLUG
+laprice@gmail.com
+http://euglug.org
+@laprice
+
+* Automating Software Development
+
+Software development is hard
+
+- There is a lot of rote, repetitive work needed to do it well
+
+- People are not good at boring repetitive work
+
+So let's hand that work off to software...
+
+
+* Using git effectively
+
+# You don't have to use git, but you must be using some sort of version control.
+
+Harder than you'd think.
+
+- make small frequent commits
+
+- use
+    git merge --squash
+    git merge --cherrypick
+to create coherent units of change on your main branch.
+
+* Run tests automatically
+
+- run unit tests after every commit
+
+    .git/hooks/post-commit #on your local tree
+
+- run integration tests when you push your changes to the integration branch
+
+    .git/hooks/post-receive #on a remote branch set up to accept pushes 
+
+* git hooks
+
+- almost as bad as cron jobs for unexpected behavior
+
+This is especially true for things that hook onto local commits.
+
+Whatever you do don't break other team members flow.
+
+If you're enforcing code style on a group that's not used to that you will get pushback.
+
+- Very Handy
+
+The right place to do all sorts of magic, style checks and incremental testing.
+
+* gitattributes
+
+Git has a bunch of useful tooling based on attributes of the files you're tracking with it.
+
+    $GITDIR/.gitattributes
+
+Is where you can define acceptable whitespace and line-endings, decide how different types of files get diffed and presented.
+
+* webhooks
+
+Webhooks are just hooks that notify an external service using an http POST request.
+
+- github
+
+.link https://developer.github.com/webhooks/ Github Webhooks
+
+- bitbucket
+
+.link https://confluence.atlassian.com/bitbucket/manage-webhooks-735643732.html Bitbucket Webhooks
+
+- slack
+
+.link https://api.slack.com/incoming-webhooks Incoming Webhooks
+
+- ifttt
+
+.link https://api.slack.com/incoming-webhooks IFTT Maker Hook
+
+* Chatops
+
+Are you working with a team?
+
+Do you have a team chat?
+
+Does your team get notified when that certain someone pushes their feature branch to staging where you can build on it?
+
+Do CI builds, breaking tests and milestones achieved show up where everybody sees them at the same time?
+
+* Chatops (2)
+
+- Slack
+
+Slick, secure, commercial. Free for small teams. 
+
+- IRC
+
+Free. Can be secured. You'll need to provide your own integration point.
+
+.link https://hubot.github.com/ Hubot!
+
+
+* Continuous Integration in theory
+
+- you have tests
+
+- they can be run automatically
+
+- your tests cover most of your codebase
+
+- your tests have relatively well defined dependencies
+
+
+* Continuous Integration in practice
+
+- write your tests first
+
+- make use of the setup and teardown features of your test environment
+
+- collect hard cases and edge cases for your test fixtures ( your test data )
+
+- accept that you will occasionally have to think about how to test your code
+
+- accept that your tests do not cover everything
+
+- when you encounter an issue not covered by your testing; write a test.
+
+* What to use for the CI server
+
+- the biggest and oldest, open source with commercial supported offerings
+.link https://jenkins-ci.org/ Jenkins
+
+- slimmer, sleeker more focused; free to use and open source; optionally supported by it's authors.
+.link https://drone.io/ Drone.IO
+
+- a full service commercial operator focused on helping teams deliver.
+.link https://app.shippable.com/ Shippable
+
+* Go forth and automate your development pipeline
+
+- even small amounts of automation can improve your process and speed up your flow
+
+- it's relatively easy to get started with tools that are widely available and easy to learn
+
+- you don't have to do it all at once
+
+
+
